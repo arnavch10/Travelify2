@@ -9,7 +9,6 @@ const Hero = () => {
 
       <ContentWrapper>
 
-        {/* Flex Row */}
         <FlexRow>
           <TextCard>
             <Heading>
@@ -42,12 +41,6 @@ const PageWrapper = styled.div`
   min-height: 100vh;
 `;
 
-const NavbarWrapper = styled.div`
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background-color: #ffffff;
-`;
 
 const ContentWrapper = styled.div`
   padding-top: 8rem;
