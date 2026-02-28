@@ -4,21 +4,18 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <Nav>
-      <LeftSection>
+    <Container>
         <Logo href="/">Travelify</Logo>
-      </LeftSection>
-
       <RightSection>
         <LoginLink href="/auth/login/">Login</LoginLink>
         <SignupLink href="/auth/signup/">Sign up</SignupLink>
       </RightSection>
-    </Nav>
+    </Container>
   );
 };
 
 
-const Nav = styled.header`
+const Container = styled.header`
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
@@ -31,8 +28,6 @@ const Nav = styled.header`
   top: 0;
   z-index: 50;
 `;
-
-const LeftSection = styled.div``;
 
 const RightSection = styled.nav`
   display: flex;
