@@ -43,54 +43,123 @@ const Signup = () => {
 
 
   return (
-    <>
-    <Navbar/>
+  <>
+    <Navbar />
     <Section>
+      <FormWrapper>
         <Header>Signup</Header>
-        <InputTitle>Email</InputTitle>
-        <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <InputTitle>Password</InputTitle>
-        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-        <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-of-use' rel="noopener noreferrer" target="_blank"> Terms of Use</UserAgreementSpan> and <UserAgreementSpan href='/legal/privacy-policy' rel="noopener noreferrer" target="_blank">Privacy Policy.</UserAgreementSpan></UserAgreementText>
+        <InputTitle>Email</InputTitle>
+        <Input 
+          type="email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+        />
+
+        <InputTitle>Password</InputTitle>
+        <Input 
+          type="password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+        />
+
+        <UserAgreementText>
+          By signing in, you automatically agree to our 
+          <UserAgreementSpan 
+            href="/legal/terms-of-use" 
+            target="_blank"
+          > Terms of Use </UserAgreementSpan> 
+            and 
+          <UserAgreementSpan 
+            href="/legal/privacy-policy" 
+            target="_blank"
+          > Privacy Policy.</UserAgreementSpan>
+        </UserAgreementText>
 
         <MainButton onClick={handleSignup}>Signup</MainButton>
-
+      </FormWrapper>
     </Section>
-    </>
-  )
+  </>
+)
 }
 
+/* ---------------------- STYLES ---------------------- */
+
 const Section = styled.section`
+  width: 100%;
+  min-height: 80vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const FormWrapper = styled.div`
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border-radius: 12px;
+  background: #f5f7fa;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 `;
 
 const Header = styled.h1`
-  font-size: 24px; /* Adjusted for better scalability */
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+`;
+
+const InputTitle = styled.label`
+  font-size: 14px;
+  font-weight: 500;
 `;
 
 const Input = styled.input`
+  padding: 10px 12px;
   font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: white;
 
-`;
-
-const InputTitle = styled.label` /* Changed to label for semantics */
-  font-size: 14px;
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+  }
 `;
 
 const MainButton = styled.button`
+  margin-top: 8px;
+  padding: 10px;
   font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #007bff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
 
+  &:hover {
+    background: #006ae6;
+  }
 `;
 
 const UserAgreementText = styled.p`
   font-size: 12px;
+  line-height: 1.3;
+  color: #444;
 `;
 
-const UserAgreementSpan = styled(Link)` 
+const UserAgreementSpan = styled(Link)`
   color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
 
+  &:hover {
+    text-decoration: underline;
+  }
 `;
-
 
 export default Signup

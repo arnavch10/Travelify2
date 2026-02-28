@@ -1,38 +1,88 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link'
-import { logOut } from '@/backend/Auth';
-import { useStateContext } from '@/context/StateContext';
-import Home from '@/components/Dashboard/Home'
-const Navbar = () => {
-  const { setUser } = useStateContext()
+import Link from 'next/link';
 
+const Navbar = () => {
   return (
     <Nav>
-      <Logo onClick={() => logOut(setUser)} href="/">CMPSC 263</Logo>
-      <Home></Home>
-      <NavLinks>
-        <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
-        <ButtonLink href="/auth/login">Login</ButtonLink>
-      </NavLinks>
+      <LeftSection>
+        <Logo href="/">Travelify</Logo>
+      </LeftSection>
+
+      <RightSection>
+        <LoginLink href="/auth/login/">Login</LoginLink>
+        <SignupLink href="/auth/signup/">Sign up</SignupLink>
+      </RightSection>
     </Nav>
   );
 };
 
-const Nav = styled.nav`
 
+const Nav = styled.header`
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #f3f4f6;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+`;
+
+const LeftSection = styled.div``;
+
+const RightSection = styled.nav`
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 `;
 
 const Logo = styled(Link)`
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #111827;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
 
+  &:hover {
+    opacity: 0.75;
+  }
 `;
 
-const NavLinks = styled.div`
+const LoginLink = styled(Link)`
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.15s ease;
 
+  &:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+  }
 `;
 
-const ButtonLink = styled(Link)`
+const SignupLink = styled(Link)`
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #000000;
+  background-color: #93c5fd;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.5);
+  transition: all 0.15s ease;
 
+  &:hover {
+    background-color: #dbeafe;
+  }
 `;
 
 export default Navbar;
