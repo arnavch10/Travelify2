@@ -5,7 +5,7 @@ import Link from "next/link";
 const NavigateHome = () => {
   return (
     <Wrapper>
-      <TravelButton href="/dashboard/home">
+      <TravelButton href="/pages/dashboard">
         Travel Now
       </TravelButton>
     </Wrapper>
