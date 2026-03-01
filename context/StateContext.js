@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { onIdTokenChanged } from 'firebase/auth';
+import { onIdTokenChanged, signOut } from 'firebase/auth';
 import {auth} from '@/backend/Firebase'
 
 const Context = createContext();
@@ -29,6 +29,11 @@ export const StateContext = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
+  const signOutUser = async () => {
+    await signOut(auth);
+    setUser(null);
+    router.push("/auth/signup")
+  }
 
 
 
@@ -36,7 +41,8 @@ return(
     <Context.Provider
     value={{
         user,
-        setUser
+        setUser,
+        signOutUser
     }}
     >
       {children}
