@@ -28,12 +28,12 @@ export default Searchbar;
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%; /* keeps it centered in the section */
+  width: 100%;
 `;
 
 const Input = styled.input`
   width: 100%;
-  max-width: 400px; /* <-- limits width like a button */
+  max-width: 400px;
   padding: 1rem 1.5rem;
   border-radius: 1rem;
   border: 1px solid #93c5fd;
