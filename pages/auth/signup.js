@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import { useStateContext } from '@/context/StateContext'
-import { isEmailInUse, register} from '@/backend/Auth'
+import { isEmailInUse, signup} from '@/backend/Auth'
 import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar'
 const Signup = () => {
@@ -21,7 +21,7 @@ const Signup = () => {
     console.log('so far so good...')
     const emailResponse = await isEmailInUse(email)
     console.log('email response', emailResponse)
-    if(emailResponse.length == 0 ){
+    if(emailResponse.length > 0 ){
         return false;
     }
 
@@ -30,8 +30,8 @@ const Signup = () => {
 
   async function handleSignup(){
     const isValidEmail = await validateEmail()
-    // console.log('isValidEmail', isValidEmail)
-    // if(!isValidEmail){ return; }
+    console.log('isValidEmail', isValidEmail)
+    if(!isValidEmail){ return; }
     
     try{
         await register(email, password, setUser)
@@ -82,8 +82,6 @@ const Signup = () => {
   </>
 )
 }
-
-/* ---------------------- STYLES ---------------------- */
 
 const Section = styled.section`
   width: 100%;
