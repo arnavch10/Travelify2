@@ -34,7 +34,7 @@ const Signup = () => {
     if(!isValidEmail){ return; }
     
     try{
-        await register(email, password, setUser)
+        await signup(email, password, setUser)
         router.push('/dashboard')
     }catch(err){
         console.log('Error Signing Up', err)
