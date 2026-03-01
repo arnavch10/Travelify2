@@ -2,8 +2,8 @@ import { auth } from "./Firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, fetchSignInMethodsForEmail } from "firebase/auth";
 
 export async function signup(email, password, setUser) {
-  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  const user = userCredential.user;
+  const userCred = await createUserWithEmailAndPassword(auth, email, password);
+  const user = userCred.user;
   setUser(user);
   console.log("User signed up:", user);
   return user;
@@ -11,8 +11,8 @@ export async function signup(email, password, setUser) {
 
 
 export async function login(email, password, setUser) {
-  const userCredential = await signInWithEmailAndPassword(auth, email, password);
-  const user = userCredential.user;
+  const userCred = await signInWithEmailAndPassword(auth, email, password);
+  const user = userCred.user;
   setUser(user);
   console.log("User logged in:", user);
   return user;
@@ -20,6 +20,7 @@ export async function login(email, password, setUser) {
 
 
 export async function isEmailInUse(email) {
-  return fetchSignInMethodsForEmail(auth, email);
+  const methods = await fetchSignInMethodsForEmail(auth, email);
+  return methods.length > 0;
 }
 
