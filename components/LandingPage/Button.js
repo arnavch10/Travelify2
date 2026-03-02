@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 
-const NavigateHome = () => {
+const NavigateDashboard = () => {
   return (
-    <Wrapper>
-      <TravelButton href="/pages/dashboard">
+    <Container>
+      <TravelButton href="/dashboard">
         Travel Now
       </TravelButton>
-    </Wrapper>
+    </Container>
   );
 };
 
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2.5rem;
@@ -33,4 +33,4 @@ const TravelButton = styled(Link)`
   }
 `;
 
-export default NavigateHome;
+export default NavigateDashboard;

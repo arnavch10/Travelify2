@@ -11,7 +11,7 @@ const Searchbar = ({ placeholder = "Search...", onSearch }) => {
   };
 
   return (
-    <Wrapper>
+    <Container>
       <Input
         type="text"
         value={query}
@@ -19,13 +19,13 @@ const Searchbar = ({ placeholder = "Search...", onSearch }) => {
         onKeyDown={handleKeyPress}
         placeholder={placeholder}
       />
-    </Wrapper>
+    </Container>
   );
 };
 
 export default Searchbar;
 
-const Wrapper = styled.div`
+const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
