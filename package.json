@@ -10,19 +10,13 @@
   },
   "dependencies": {
     "@huggingface/inference": "^4.13.14",
-<<<<<<< HEAD
     "@lottiefiles/dotlottie-react": "^0.18.3",
     "@react-google-maps/api": "^2.20.8",
-=======
->>>>>>> 0e76531abd0b228ee570b4d2d2634a89fe2c7dd9
     "axios": "^1.6.7",
     "babel-plugin-styled-components": "^2.1.4",
     "crypto": "^1.0.1",
     "firebase": "^12.10.0",
-<<<<<<< HEAD
     "lottie-react": "^2.4.1",
-=======
->>>>>>> 0e76531abd0b228ee570b4d2d2634a89fe2c7dd9
     "mvp-starter": "file:",
     "next": "^13.5.11",
     "openai": "^6.25.0",
