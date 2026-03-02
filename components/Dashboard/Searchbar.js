@@ -11,7 +11,11 @@ const Searchbar = ({ placeholder = "Search...", onSearch }) => {
   };
 
   return (
+<<<<<<< HEAD
     <Container>
+=======
+    <Wrapper>
+>>>>>>> 0e76531abd0b228ee570b4d2d2634a89fe2c7dd9
       <Input
         type="text"
         value={query}
@@ -19,13 +23,21 @@ const Searchbar = ({ placeholder = "Search...", onSearch }) => {
         onKeyDown={handleKeyPress}
         placeholder={placeholder}
       />
+<<<<<<< HEAD
     </Container>
+=======
+    </Wrapper>
+>>>>>>> 0e76531abd0b228ee570b4d2d2634a89fe2c7dd9
   );
 };
 
 export default Searchbar;
 
+<<<<<<< HEAD
 const Container = styled.div`
+=======
+const Wrapper = styled.div`
+>>>>>>> 0e76531abd0b228ee570b4d2d2634a89fe2c7dd9
   display: flex;
   justify-content: center;
   width: 100%;
