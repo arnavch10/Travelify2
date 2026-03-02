@@ -1,6 +1,6 @@
 import { InferenceClient } from "@huggingface/inference";
 
-const client = new InferenceClient(process.env.HF_API_KEY);
+const client = new InferenceClient(process.env.NEXT_PUBLIC_HF_API_KEY);
 
 export default async function handler(req, res) {
   const { query } = req.body;
