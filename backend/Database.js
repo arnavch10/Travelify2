@@ -11,3 +11,12 @@ export async function createSearch(userId, queryText, results) {
   });
   return docRef.id;
 }
+
+export async function getSearchHistory(userId) {
+  const q = query(collection(database, "searches"),
+    where("userId", "==", userId),
+    orderBy("createdAt", "desc"),
+  );
+  const querySnapshot = await getDocs(q);
+  return querySnapshot.docs.map((doc) => doc.data());
+}
