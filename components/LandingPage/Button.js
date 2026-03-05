@@ -6,11 +6,13 @@ The button takes the user to the dashboard if they are logged in.
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
+import { useStateContext } from "@/context/StateContext";
 
 const NavigateDashboard = () => {
+  const { user } = useStateContext();
   return (
     <Container>
-      <TravelButton href="/dashboard">
+      <TravelButton href={user ? "/dashboard" : "/auth/login"}>
         Travel Now
       </TravelButton>
     </Container>
