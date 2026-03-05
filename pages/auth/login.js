@@ -28,12 +28,15 @@ const Login = () => {
   <>
     <Navbar />
     <Section>
-      <DotLottieReact
+      <AnimationContainer>
+        <DotLottieReact
         src="https://lottie.host/dcbcb85b-d6f4-4f8b-a958-31a155f457ee/QVWKpuofd1.lottie"
         loop
         autoplay
-        style={{ width: 300, height: 300}}
-      />
+        style={{ width: "100%", height: "100%"}}
+        />        
+      </AnimationContainer>     
+
       <FormWrapper>
         <Header>Login</Header>
 
@@ -77,6 +80,8 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 80px;
+  padding: 40px;
 `;
 
 const FormWrapper = styled.div`
@@ -89,6 +94,15 @@ const FormWrapper = styled.div`
   background: #f5f7fa;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 `;
+
+const AnimationContainer = styled.div`
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+`
 
 const Header = styled.h1`
   font-size: 26px;
@@ -118,17 +132,20 @@ const Input = styled.input`
 
 const MainButton = styled.button`
   margin-top: 8px;
-  padding: 10px;
+  padding: 8px 16px;
   font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  background: #007bff;
-  color: white;
-  font-weight: 600;
+  border-radius: 100px;
+  border: 1px solid #d1d5db;
+  background: #93c5fd;
+  color: black;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.5);
 
   &:hover {
-    background: #006ae6;
+    background: #dbeafe;
   }
 `;
 

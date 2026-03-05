@@ -5,6 +5,7 @@ import { useStateContext } from '@/context/StateContext'
 import { isEmailInUse, signup} from '@/backend/Auth'
 import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar'
+import { DotLottie, DotLottieReact } from '@lottiefiles/dotlottie-react';
 const Signup = () => {
 
   const { user, setUser } = useStateContext()
@@ -46,6 +47,14 @@ const Signup = () => {
   <>
     <Navbar />
     <Section>
+      <AnimationContainer>
+        <DotLottieReact
+        src="https://lottie.host/dcbcb85b-d6f4-4f8b-a958-31a155f457ee/QVWKpuofd1.lottie"
+        loop
+        autoplay
+        style={{ width: "100%", height: "100%"}}
+        />
+      </AnimationContainer>
       <FormWrapper>
         <Header>Signup</Header>
 
@@ -89,7 +98,18 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 80px;
+  padding: 40px;
 `;
+
+const AnimationContainer = styled.div`
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+`
 
 const FormWrapper = styled.div`
   width: 350px;
@@ -130,19 +150,23 @@ const Input = styled.input`
 
 const MainButton = styled.button`
   margin-top: 8px;
-  padding: 10px;
+  padding: 8px 16px;
   font-size: 16px;
-  border-radius: 8px;
-  border: none;
-  background: #007bff;
-  color: white;
-  font-weight: 600;
+  border-radius: 100px;
+  border: 1px solid #d1d5db;
+  background: #93c5fd;
+  color: black;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.5);
 
   &:hover {
-    background: #006ae6;
+    background: #dbeafe;
   }
 `;
+
 
 const UserAgreementText = styled.p`
   font-size: 12px;
