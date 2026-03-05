@@ -29,7 +29,7 @@ const Login = () => {
     <Navbar />
     <Section>
       <DotLottieReact
-        src="https://lottie.host/56e07abe-f831-4eb3-9b18-f4ebd3a09327/8aAhvVZA8j.lottie"
+        src="https://lottie.host/dcbcb85b-d6f4-4f8b-a958-31a155f457ee/QVWKpuofd1.lottie"
         loop
         autoplay
         style={{ width: 300, height: 300}}
