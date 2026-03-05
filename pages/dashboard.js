@@ -27,12 +27,25 @@ const Dashboard = () => {
   const router = useRouter();
   const [destinations, setDestinations] = useState([]);
   const [locations, setLocations] = useState([]);
+  const [history, setHistory] = useState([]);
   const [showMap, setShowMap] = useState(false);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     if (!user) {
       router.push('/');
     }
+
+    const fetchSearchHistory = async () => {
+      try {
+        const pastHistory = await getSearchHistory(user.uid);
+        setHistory(pastHistory);
+      } catch (err) {
+        console.log("Unable to fetch history: ", err);
+      }
+    };
+
+    fetchSearchHistory();
   }, [user]);
 
   // parser for markdown
@@ -56,6 +69,11 @@ const Dashboard = () => {
 
   const handleSearch = async (query) => {
     try {
+      // resetting states for new search
+      setNotFound(false);
+      setDestinations([]);
+      setShowMap(false);
+      
       const res = await fetch('/api/search', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -74,8 +92,12 @@ const Dashboard = () => {
       if (!parsed || parsed.length === 0) {
         setDestinations([]);
         alert("Sorry about that. We don't have information for that destination.");
+        setNotFound(true); // display different animation when api returns nothing
         return;
       }
+
+      // found = true
+      setNotFound(false);
       const mapRes = await fetch('/api/places', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -95,8 +117,8 @@ const Dashboard = () => {
       <Section>
         <Searchbar placeholder="Travel to new destinations..." onSearch={handleSearch} />
 
-
-        {destinations.length === 0 && (
+        {/* Default when nothing is there */}
+        {destinations.length === 0 && !notFound && (
           <Container>
             <Header>Discover new places to travel and memories to make!</Header>
             <Animation>
@@ -109,12 +131,32 @@ const Dashboard = () => {
             </Animation>
           </Container>
         )}
+
+        {/* When the api returns nothing */}
+        {notFound && (
+          <Container>
+            <Header>Sorry about that, but nothing was found!</Header>
+            <Animation>
+              <DotLottieReact 
+                src="https://lottie.host/4b1dddb0-d653-4a9b-ad7f-c34f84d126bd/AIygqYLRbE.lottie"
+                loop
+                autoplay
+                style={{height: '500px', width: '500px'}}
+              />
+            </Animation>
+          </Container>
+        )}
+
         {destinations.length > 0 && (
           <ResultsContainer>
             <h2>Search Results:</h2>
             {destinations.map((dest, i) => (
               <DestinationCard key={i}>
-                <PlaceName>{dest.name}</PlaceName>
+                <PlaceName>
+                  <a href={`https://www.google.com/search?q=${encodeURIComponent(dest.name)}`} target="_blank" rel="noopener noreferrer">
+                    {dest.name}
+                  </a>
+                </PlaceName>
                 <History>{dest.history}</History>
                 <Importance>Importance: {dest.tips}</Importance>
               </DestinationCard>
