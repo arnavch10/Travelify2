@@ -5,6 +5,7 @@ import { useStateContext } from '@/context/StateContext'
 import {login, isEmailInUse} from '@/backend/Auth'
 import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar'
+import { DotLottie, DotLottieReact } from '@lottiefiles/dotlottie-react';
 const Login = () => {
 
   const { user, setUser } = useStateContext()
@@ -27,6 +28,12 @@ const Login = () => {
   <>
     <Navbar />
     <Section>
+      <DotLottieReact
+        src="https://lottie.host/56e07abe-f831-4eb3-9b18-f4ebd3a09327/8aAhvVZA8j.lottie"
+        loop
+        autoplay
+        style={{ width: 300, height: 300}}
+      />
       <FormWrapper>
         <Header>Login</Header>
 
