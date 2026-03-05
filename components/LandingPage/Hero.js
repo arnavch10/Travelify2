@@ -1,3 +1,12 @@
+/*
+This is the Hero component for the landing page.
+
+The component includes a header, a slogan, and graphic.
+
+The component also includes a button component that takes the user to the dashboard 
+if they are logged in by utilizing the StateContext functionality.
+*/
+
 import React from "react";
 import styled from "styled-components";
 import travel from "@/components/Dashboard/travelgraphic.jpg";

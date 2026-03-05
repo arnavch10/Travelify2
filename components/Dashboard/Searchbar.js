@@ -1,3 +1,10 @@
+/*
+This is the searchbar component for the dashboard.
+The component includes an input field where users can type in their
+desired destination. The component also utilizes the useState hook
+to manage the state of the input.
+*/
+
 import React, { useState } from "react";
 import styled from "styled-components";
 

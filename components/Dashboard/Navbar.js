@@ -1,6 +1,14 @@
+/*
+This is the navbar component for both the landing page and the dashboard.
+
+The component includes the title of the app on the left
+and the login and signup links on the right.
+*/
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+
+
 
 const Navbar = () => {
   return (

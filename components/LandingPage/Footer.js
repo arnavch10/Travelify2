@@ -1,3 +1,7 @@
+/*
+Simple footer component for the landing page from the template
+*/
+
 import React from 'react';
 import styled from 'styled-components';
 

@@ -1,3 +1,8 @@
+/*
+Custom navigate dashboard button component for the landing page.
+The button takes the user to the dashboard if they are logged in.
+*/
+
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";

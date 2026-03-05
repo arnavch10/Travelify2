@@ -1,3 +1,10 @@
+/*
+This is the dashboard navbar component.
+
+Very similar to the regular navbar component, but incorporates the sign out functionaly
+from the useStateContext.
+*/
+
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
