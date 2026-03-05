@@ -35,13 +35,14 @@ const Dashboard = () => {
     }
   }, [user]);
 
+  // parser for markdown
   const parseDestinationsFromMarkdown = (markdown) => {
-    const lines = markdown.split('\n');
+    const lines = markdown.split('\n'); // get each line of markdown
     const results = [];
 
     lines.forEach((line) => {
-      const match = line.match(/^\|\s*\d+\s*\|\s*\*\*(.+?)\*\*\s*\|\s*(.+?)\s*\|\s*(.+?)\s*\|/);
-      if (match) {
+      const match = line.match(/^\|\s*\d+\s*\|\s*\*\*(.+?)\*\*\s*\|\s*(.+?)\s*\|\s*(.+?)\s*\|/); 
+      if (match) { // if the regex matches, get name, history, tips
         results.push({
           name: match[1].trim(),
           history: match[2].trim(),
@@ -100,10 +101,10 @@ const Dashboard = () => {
             <Header>Discover new places to travel and memories to make!</Header>
             <Animation>
               <DotLottieReact 
-                src="https://lottie.host/3a163289-c532-477d-8c71-c08bbe7e4ff7/3ZCHyaHaC6.lottie"
+                src="https://lottie.host/dcbcb85b-d6f4-4f8b-a958-31a155f457ee/QVWKpuofd1.lottie"
                 loop
                 autoplay
-                style={{height: '300px', width: '300px'}}
+                style={{height: '500px', width: '500px'}}
               />
             </Animation>
           </Container>
