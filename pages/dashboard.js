@@ -1,3 +1,17 @@
+/*
+This is the main page of the application.
+It is the dashboard where users can see different locations and attractions based on the 
+
+The page consists of a search bar where users can input a destination and via a 
+Hugging Face API call, the app returns a list of attractions in that destination.
+
+The page also includes a map that shows the locations of the attractions
+via the Google Maps API. 
+
+This allows the users to have a visual representation of where the attractions are located.
+*/
+
+
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useStateContext } from '@/context/StateContext';
