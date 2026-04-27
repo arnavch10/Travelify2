@@ -1,49 +1,36 @@
-/*
-This is the Hero component for the landing page.
-
-The component includes a header, a slogan, and graphic.
-
-The component also includes a button component that takes the user to the dashboard 
-if they are logged in by utilizing the StateContext functionality.
-*/
-
 import React from "react";
 import styled from "styled-components";
-import travel from "@/components/Dashboard/travelgraphic.jpg";
 import Button from "@/components/LandingPage/Button";
-import { DotLottie, DotLottieReact } from '@lottiefiles/dotlottie-react';
+
 const Hero = () => {
   return (
     <Container>
-
       <ContentWrapper>
-
         <FlexRow>
           <TextCard>
             <Header>
-              Finding new places to visit has never been easier.
+              Own, Trade, and Create Your Own Digital Trading Cards.
             </Header>
 
             <Slogan>
-              Find out <strong>amazing</strong> places to visit in your city with our AI-powered recommendation system.
+              Mint unique fantasy cards, build your collection, and trade securely using blockchain technology.
             </Slogan>
           </TextCard>
 
-           
           <GraphicWrapper>
-            <GraphicImage src={travel.src} alt="Travel graphic" />
+            <GraphicBox>
+              {/* Placeholder graphic */}
+              🎴
+            </GraphicBox>
           </GraphicWrapper>
         </FlexRow>
 
-        {/* Main button - takes user to dashboard if logged in */}
+        {/* Connect wallet / navigate */}
         <Button />
-
       </ContentWrapper>
-
     </Container>
   );
 };
-
 
 const Container = styled.div`
   display: flex;
@@ -58,19 +45,20 @@ const ContentWrapper = styled.div`
 const FlexRow = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 3rem;
 `;
 
 const TextCard = styled.div`
-  background-color: #e5e7eb;
-  border-radius: 0.5rem;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 0.75rem;
   padding: 4rem;
   max-width: 42rem;
-  margin-left: 12rem;
+  margin-left: 10rem;
 `;
 
 const Header = styled.h1`
-  text-align: left;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -79,21 +67,23 @@ const Header = styled.h1`
 const Slogan = styled.p`
   margin-top: 1.25rem;
   font-size: 1.5rem;
-  max-width: 24rem;
 `;
 
 const GraphicWrapper = styled.div`
-  margin-right: 4rem;
-  display: flex;
-  margin-right: 4rem;
+  margin-right: 6rem;
 `;
 
-const GraphicImage = styled.img`
-  width: 32.5rem;
-  max-width: none;
-  object-fit: cover;
-  border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(149, 112, 112, 0.1), 0 4px 6px -2px rgba(194, 57, 57, 0.05);
+const GraphicBox = styled.div`
+  width: 320px;
+  height: 420px;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 `;
 
 export default Hero;
